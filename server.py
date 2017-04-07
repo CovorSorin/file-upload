@@ -42,6 +42,8 @@ while True:
         words.append(line)
     f.close()
 
+    words.sort()
+    
     # send the words in the sorted order
     output = ""
     for i in range(0, (len(words)-1)):
@@ -49,3 +51,4 @@ while True:
         
     conn.send(str(output))
     conn.close()
+
