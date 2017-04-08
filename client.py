@@ -23,6 +23,7 @@ f.close()
 
 print('File succesfully sent!')
 
+# wait for response
 while True:
     data = s.recv(1024)
     print('data=%s', (data))
