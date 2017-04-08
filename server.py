@@ -1,13 +1,17 @@
 import socket                  
+import sys
 
 # reserve a port
 port = 6000
 
 # create a socket object
-s = socket.socket()
+# s = socket.socket()
+s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
 # get local machine adress
-host = socket.gethostname()     
+# host = socket.gethostname()
+host = '192.168.0.100'
+print host
 
 # bind to the port and wait for client connection
 s.bind((host, port))            
@@ -43,10 +47,12 @@ while True:
     f.close()
 
     words.sort()
+
+    print words
     
     # send the words in the sorted order
     output = ""
-    for i in range(0, (len(words)-1)):
+    for i in range(0, (len(words))):
         output = output + str(words[i])
         
     conn.send(str(output))
