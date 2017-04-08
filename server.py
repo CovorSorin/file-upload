@@ -9,8 +9,7 @@ port = 6000
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
 # get local machine adress
-# host = socket.gethostname()
-host = '192.168.0.100'
+host = socket.gethostname()
 print host
 
 # bind to the port and wait for client connection
@@ -26,7 +25,7 @@ while True:
     
     print 'Connected to ', addr
 
-    data = conn.recv(1024)
+    data = conn.recv(2048)
     print('Server received', repr(data))
 
     # creates a file to store the data from the client
