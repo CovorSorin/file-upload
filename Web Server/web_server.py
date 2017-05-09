@@ -57,9 +57,9 @@ class myHandler(BaseHTTPRequestHandler):
                 global text
 		if self.path=="/send":
                         form = cgi.FieldStorage(
-                                fp=self.rfile,
-                                headers=self.headers,
-                                environ={'REQUEST_METHOD':'POST',
+                                fp = self.rfile,
+                                headers = self.headers,
+                                environ = {'REQUEST_METHOD':'POST',
                                 'CONTENT_TYPE':self.headers['Content-Type']
                         })
 
@@ -72,6 +72,7 @@ class myHandler(BaseHTTPRequestHandler):
                                 self.send_response(200)
                                 self.end_headers()
                                 sort(text)
+                                del text[0]
                                 self.wfile.write(text)
                                 text = []
 			return

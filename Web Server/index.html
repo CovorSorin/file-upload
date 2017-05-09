@@ -3,56 +3,27 @@
     <title>File Sort</title>
     <script>
     // read using the FILE API
-    function loadFile() {
-        var input, file, fr;
+    function readFile(){
+		var fileInput = document.getElementById('fileinput');
+        var file = fileInput.files[0];
+        var textType = /text.*/;
 
-        input = document.getElementById('fileinput');
+        if (file.type.match(textType)) {
+            var reader = new FileReader();
 
-        if (typeof window.FileReader !== 'function') {
-            bodyAppend("p", "The file API isn't supported on this browser yet.");
-            return;
-        }
+            reader.onload = function(e) {
+                console.log(reader.result.split(" "));
+                var text = reader.result.trim().split(" ");
+                sendResult(text);
+            }
 
-        if (!input) {
-            bodyAppend("p", "Couldn't find the fileinput element.");
-        }
-        else if (!input.files) {
-            bodyAppend("p", "This browser doesn't seem to support the `files` property of file inputs.");
-        }
-        else if (!input.files[0]) {
-            bodyAppend("p", "Please select a file before clicking 'Load'");
-        }
-        else {
-            file = input.files[0];
-            fr = new FileReader();
-            fr.onload = receivedText;
-            fr.readAsText(file);
-        }
-
-        function receivedText() {
-            showResult(fr, "Text");
-            fr = new FileReader();
-            fr.readAsBinaryString(file);
+            reader.readAsText(file);
+        } else {
+            console.log("File not supported!");
         }
     }
 
-    function showResult(fr, label) {
-        var markup, result, n, aByte, byteStr, text;
-        text = [];
-        markup = [];
-        result = fr.result;
-        for (n = 0; n < result.length; ++n) {
-            aByte = result.charCodeAt(n);
-            byteStr = aByte.toString(16);
-            if (byteStr.length < 2) {
-                byteStr = "0" + byteStr;
-            }
-            markup.push(byteStr);
-            if(byteStr != '0a' && byteStr != '0d'){
-                text.push(hex2asc(byteStr));
-            }
-        }
-
+    function sendResult(text) {
         for (var i = 0; i <= text.length; i++){
             document.getElementById("input_text").innerHTML = text[i];
             if (i == text.length)
@@ -122,7 +93,7 @@
         <h2>Choose a file:</h2>
         <form>
             Select a file: <input type="file" id="fileinput">
-            <button type="button" onclick="loadFile()">Send</button>
+            <button type="button" onclick="readFile()">Send</button>
         </form>
     </div>
 
