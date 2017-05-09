@@ -34,8 +34,6 @@
             fr = new FileReader();
             fr.readAsBinaryString(file);
         }
-
-
     }
 
     function showResult(fr, label) {
@@ -98,8 +96,7 @@
     function Send() {
         loadJSONDoc("send", function () {
             if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-                document.getElementById("div3").innerHTML = document.getElementById("div3").innerHTML
-                + "<br/>" + xmlhttp.responseText;
+                document.getElementById("div3").innerText = xmlhttp.responseText;
             }
         });
     }
@@ -130,10 +127,9 @@
     </div>
 
     <div id="div2">
-            <div id="input_text"><div>
+            <div id="input_text"></div>
     </div>
 
-    <div id="div3">
-    </div>
+    <div id="div3"> Your sorted text will be placed here. </div>
 </body>
 </html>

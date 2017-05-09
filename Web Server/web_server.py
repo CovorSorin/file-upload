@@ -1,7 +1,6 @@
 from BaseHTTPServer import BaseHTTPRequestHandler, HTTPServer
 from os import curdir, sep
 import cgi
-import Queue
 
 PORT_NUMBER = 8000
 
@@ -73,10 +72,8 @@ class myHandler(BaseHTTPRequestHandler):
                                 self.send_response(200)
                                 self.end_headers()
                                 sort(text)
-                                self.wfile.write("RWRW")
+                                self.wfile.write(text)
                                 text = []
-
-
 			return
 
 try:
