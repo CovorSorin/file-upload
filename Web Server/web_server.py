@@ -72,7 +72,7 @@ class myHandler(BaseHTTPRequestHandler):
                                 self.send_response(200)
                                 self.end_headers()
                                 sort(text)
-                                del text[0]
+                                #del text[0]
                                 self.wfile.write(text)
                                 text = []
 			return

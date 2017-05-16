@@ -19,7 +19,7 @@
 
             reader.readAsText(file);
         } else {
-            console.log("File not supported!");
+            console.log("Le fichier n'est pas supporte!");
         }
     }
 
@@ -90,10 +90,10 @@
 
 <body>
     <div id="div1">
-        <h2>Choose a file:</h2>
+        <h2>Choisissez le fichier</h2>
         <form>
-            Select a file: <input type="file" id="fileinput">
-            <button type="button" onclick="readFile()">Send</button>
+            Selectionnez: <input type="file" id="fileinput">
+            <button type="button" onclick="readFile()">Envoyer</button>
         </form>
     </div>
 
@@ -101,6 +101,6 @@
             <div id="input_text"></div>
     </div>
 
-    <div id="div3"> Your sorted text will be placed here. </div>
+    <div id="div3"> Votre text arrange sera place ici. </div>
 </body>
 </html>
