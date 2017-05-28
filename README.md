@@ -2,7 +2,7 @@ The purpose was to upload a file and receive the content sorted alphabetically.<
 
 command-line: <br>
 Open a terminal and run "python server.py". <br>
-In another terminal run "python clinent.py name_of_the_file". <br>
+In another terminal run "python client.py name_of_the_file". <br>
 The file to be sent must be in the same folder. <br>
 
 web-server-python: <br>
