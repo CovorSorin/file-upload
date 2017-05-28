@@ -13,7 +13,8 @@ host = socket.gethostname()
 # connect to the host
 s.connect((host, port))
 
-f = open('file.txt', 'rb')
+file_name = sys.argv[1]
+f = open(file_name, 'rb')
 
 print 'The file is sending...'
 

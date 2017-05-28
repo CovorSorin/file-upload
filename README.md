@@ -1,16 +1,17 @@
-# File-Transfer
-Simple python file transfer via server
+The purpose was to upload a file and receive the content sorted alphabetically.<br>
 
-If you want to play around with the code, clone the code or just download it.</br>
+command-line: <br>
+Open a terminal and run "python server.py". <br>
+In another terminal run "python clinent.py name_of_the_file". <br>
+The file to be sent must be in the same folder. <br>
 
-Open a terminal and run "python server.py".</br>
-In another terminal run "python clinent.py".</br>
+web-server-python: <br>
+Run "python web-server.py" <br>
+http://localhost:8000/ <br>
+The python web server with upload is based upon: <br>
+https://gist.github.com/UniIsland/3346170 <br>
 
-To use your actual IP (not the localhost) as the server</br>
-it needs to have the port from the script forwarded.</br>
-Check it here http://canyouseeme.org/</br>
+Helpfull information:<br>
+https://pymotw.com/2/socket/tcp.html<br>
 
-Helpfull information:</br>
-https://pymotw.com/2/socket/tcp.html</br>
-
-web_server.py line 75
+See visible ports: http://canyouseeme.org/<br>

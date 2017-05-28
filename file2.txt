@@ -1,2 +1,0 @@
-presentation python client serveur presente 
-ici
