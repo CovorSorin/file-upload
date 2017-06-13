@@ -5,7 +5,6 @@ import sys
 port = 6000
 
 # create a socket object
-# s = socket.socket()
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
 # get local machine adress
@@ -32,19 +31,21 @@ while True:
     filename = 'received.txt'
     f = open(filename,'wb')
     f.write(data)
-    f.close()
 
     print('File was received.')
-
+    f = open(filename,'r')
+    
     # store words from file received
     words = []
 
-    f = open(filename,'rb')
     for line in f:
-        line = line.split()
-        words.append(line)
+        line = line.split(' ')
+        for i in range(0, len(line)):
+            if line[i] != '\n':
+                words.append(line[i])
     f.close()
 
+    print words
     words.sort()
 
     print words
@@ -52,8 +53,7 @@ while True:
     # send the words in the sorted order
     output = ""
     for i in range(0, (len(words))):
-        output = output + str(words[i])
+        output = output + str(words[i]) + " "
         
     conn.send(str(output))
     conn.close()
-
