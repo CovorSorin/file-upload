@@ -47,8 +47,6 @@ while True:
 
     print words
     words.sort()
-
-    print words
     
     # send the words in the sorted order
     output = ""
